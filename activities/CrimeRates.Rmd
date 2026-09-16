@@ -48,7 +48,7 @@ crimes_with_rates <- crimes |> mutate(violent_rate = violent_crime_total/populat
 
 Write a few sentences about what you found in the data. What years had the highest crime rates? What years had the lowest crime rates? Does the pattern match your expectations? What might explain some of the results you found?
 
-
+The year with the highest crime rate in Maryland  was 1995, with the highest category of crime being in larcency theft and the lowest category being in murder. The year with the lowest crime rate in Maryland was 2020, with the highest category of crime that year being in larcency theft, and the lowest category being murder. These rates makes sense, as 2020 was the year of the global pandemic Covid-19, where people were afraid of close contact with others and were encourages to stay 6 feet away from each other. Therefore, it makes sense that a lot of crime would go down this year relative to others. The year 1995 being the year with the highest amount of crime in Maryland also makes sense as there were still lingering effects of the crack-cocaine epidemic, fueling localized spikes in violent offenses. 
 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.

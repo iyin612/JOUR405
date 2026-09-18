@@ -53,7 +53,7 @@ md_cities_change <- md_cities_rates |> mutate(percentage_change_violent= (violen
 
 Look at the `md_cities_change` dataframe by clicking on it in the Environment tab in RStudio. Write a couple of sentences describing the percentage change results. What's more interesting here, the patterns or the outliers? What's the story in the data?
 
-ANSWER HERE: I notice that the percentage changes show that crime rates varied significantly between Maryland cities from 2019 to 2020, with some smaller cities experiencing especially large increases or decreases. I think the outliers are more interesting than the overall pattern because cities with very small populations can show dramatic percentage changes from only a few additional or fewer reported crimes. This suggests that while the data can reveal changes in crime rates, the more extreme percentage changes should be looked at carefully because they could just be influenced by smaller populations.
+ANSWER HERE: I notice that the percentage changes show that crime rates varied significantly between Maryland cities from 2019 to 2020, with some smaller cities experiencing especially large increases or decreases. I think the outlier's are more interesting than the overall pattern because cities with very small populations can show dramatic percentage changes from only a few additional or fewer reported crimes. This suggests that while the data can reveal changes in crime rates, the more extreme percentage changes should be looked at carefully because they could just be influenced by smaller populations.
 
 ### Task 8: Tell the Best Story
 
@@ -61,7 +61,7 @@ Write up a lede and nutgraf of a story with the _best_ story idea you've found i
 
 ANSWER HERE: Ocean city recorded a sharp increase in its violent crime rate in 2020, surpassing Baltimore City to have the highest violent crime rate among Maryland cities. 
 
-The data shows that crime rates varies across Maryland cities between 2019 and 2020. Ocean city had some of the highest rates in the dataset overall. The data also shows that smaller cities can still have relatively high crime rates because even a small number of reported crimes can have a larger effected when compared with a smaller population. This data shows the importance of population size when interperting crime statistics, as raw crime totals can make big cities look worse simply because they have more people, whereas rates give you a way to compare cities of different sizes.
+The data shows that crime rates varies across Maryland cities between 2019 and 2020. Ocean city had some of the highest rates in the data set overall. The data also shows that smaller cities can still have relatively high crime rates because even a small number of reported crimes can have a larger effected when compared with a smaller population. This data shows the importance of population size when interperting crime statistics, as raw crime totals can make big cities look worse simply because they have more people, whereas rates give you a way to compare cities of different sizes.
 
 ### Task 9: Save Your Work and Put it on GitHub
 

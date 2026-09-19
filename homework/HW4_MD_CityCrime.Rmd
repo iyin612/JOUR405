@@ -66,3 +66,15 @@ The data shows that crime rates varies across Maryland cities between 2019 and 2
 ### Task 9: Save Your Work and Put it on GitHub
 
 Save this notebook, then commit it to your local repository. Push the changes to your GitHub repository and submit the URL for this file in ELMS.
+
+### Task 10:
+
+
+md_cities_percentiles <- md_cities_change |> mutate(percentile=ntile(violent_rate_2020, 100))
+
+sum(md_cities_percentiles$percentile > 90)
+
+md_cities_change |> summarize(IQR = IQR(violent_rate_2020))
+
+
+The percentile data reaffirms my original story idea because for example, Ocean City ranked at the 100th percentile and Baltimore city ranked the 99th percentile, with other cities such as Cambridge, Princess Anne and Kitzmiller also falling between the 96th and 98th percentiles. These results support my focus on the differences in crime rates across cities and the importance of considering population size when interperting those differences. The percentile rankings provide additional context by showing that some cities are at the extreme end of the distribution instead of simply having higher rates than other communities.

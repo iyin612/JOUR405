@@ -9,6 +9,7 @@ In this assignment, you'll build on your z-score skills to answer probability qu
 Load the tidyverse and the White House salaries data from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2025.csv into a dataframe called `wh_salaries`
 
 ```{r}
+wh_salaries <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2025.csv")
 ```
 
 ### Task 2: Filter and summarize (2 points)
@@ -19,18 +20,29 @@ You may remember from HW3 that some White House staffers have a salary of $0. Le
 wh_paid <- wh_salaries |>
   filter(SALARY > 0)
 
-
+wh_paid |> 
+  summarize (
+   mean_salary = mean(SALARY), 
+   median_salary = median(SALARY),
+   sd_salary = sd(SALARY)
+  )
 
 ```
 
 Now create a histogram of the paid salaries with a vertical line for the mean and two more for ±1 standard deviation, similar to what you did in HW6 with Spotify data.
 
 ```{r}
+wh_paid |> 
+  ggplot() + 
+  geom_histogram(aes(x = SALARY), binwidth = 10000) +
+  geom_vline(aes(xintercept = mean(SALARY)), color = "red", linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = mean(SALARY) - sd(SALARY)), color = "blue", linetype = "dashed", linewidth= 1) +
+  geom_vline(aes(xintercept = mean(SALARY) + sd(SALARY)), color = "blue", linetype = "dashed", size = 1)
 ```
 
 **Describe the shape of the distribution. Is it roughly normal? Skewed? Where do most salaries cluster?**
 
-ANSWER HERE
+ANSWER HERE: The distribution is right-skewed and not roughly normal. The bulk of the data sits to the left and there are very few high salaries. 
 
 ### Task 3: The Empirical Rule (3 points)
 
@@ -64,7 +76,7 @@ empirical
 
 **How closely does the data follow the empirical rule? What does any deviation tell you about the distribution?**
 
-ANSWER HERE
+ANSWER HERE:The data roughly follows the empircal rule, with 65.9% falling within 1 SD and 100% within 3 SD, but only 912% falls within 2 SD instead of 95%. The extra values are high salaries in the right tail which shows that the distribution is skewed and not normal
 
 ### Task 4: From z-scores to probability with pnorm() (4 points)
 
@@ -102,7 +114,7 @@ actual_prob
 
 **Write a sentence describing this probability in plain English. How does the normal approximation (prob_less) compare to the actual percentage?**
 
-ANSWER HERE
+ANSWER HERE: According to the normal approximation, about 16.9% of the values are expected to be at or below that cutoff.
 
 ### Task 5: Probability between two values (3 points)
 
@@ -112,21 +124,21 @@ You'll need to calculate z-scores for those two figures, use `pnorm()` for each,
 
 ```{r}
 
-z_lower <- (REPLACE_ME - mean_sal) / sd_sal
-z_upper <- (REPLACE_ME - mean_sal) / sd_sal
+z_lower <- (80000 - mean_sal) / sd_sal
+z_upper <- (120000 - mean_sal) / sd_sal
 
 prob_between <- pnorm(z_upper) - pnorm(z_lower)
 prob_between
 
 # Verify with actual data
-actual_between <- sum(wh_paid$SALARY >= REPLACE_ME & wh_paid$SALARY <= REPLACE_ME) / total_n
+actual_between <- sum(wh_paid$SALARY >= 80000 & wh_paid$SALARY <= 120000) / total_n
 actual_between
 
 ```
 
 **Interpret this result. What does this "middle range" tell us about the White House salary structure?**
 
-ANSWER HERE
+ANSWER HERE: The normal approximation 36.6% of paid white house employees earn between 800000 and 120000, but the actual figure is 32.6%. Only about a third of staff fall in this middle range, which suggests the salaray structure is split into three tiers
 
 ### Task 6: Expected vs. observed (3 points)
 
@@ -158,7 +170,7 @@ bins |> select(category, expected_count, observed_count, difference)
 
 **Where does reality differ most from what the normal distribution predicts? What might explain those differences?**
 
-ANSWER HERE
+ANSWER HERE: The biggest difference is in the 60-90k range, where 151 employees are shown but the normal curve redicts about 78. The curve also expects about 40 employees below 60k, but only 2 actually are. This could be because salaries have a floor and are set in tiers like entry level and senior.
 
 ### Task 7: Story pitch (4 points)
 
@@ -166,7 +178,13 @@ Based on your probability analysis, write a headline and lede for a story about 
 
 Then write 2-3 sentences describing how you would use probability thinking to advance this story — what could you compare these probabilities to, and what additional analysis would help?
 
-ANSWER HERE
+ANSWER HERE: 
+
+Headlines: One in Five White House Staffers earns more than 150,000 
+
+Lede: Nearly four in 10 paid white house staffers earn between 60,000 and 90,000, while one in five makes more than 150,000 , an analysis of salary data shows. The split leave a thin middle, only about a third of the 396 employees earn between 80,000 and 120,000 
+
+I would compare these percentages with other years (such as the 2026 file) and with the federal pay scale to see if the split between lower and higher earners is unusual. The gap between what a normal curve predicts and what we see suggests there are fixed pay bands, so I would break salaries down by job title and by employee versus detailee status to see who sits in each tier. 
 
 ### Task 8: Save Your Work and Put it on GitHub
 

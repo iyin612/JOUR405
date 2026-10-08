@@ -58,7 +58,7 @@ They're actually very similar, the biggest jump in raw numbers would be the mean
 
 Write a few sentences about what you found in the data. What does this tell you about the M&Ms dataset and about the act of random sampling?
 
-Even though I only used five rows of data for the sample, the sample was still pretty similar to the full dataset overall. The mean was only a few points different and the df was close as well. I think this shows that random sampling can still give you a good idea of a larger dataset, even when you're only looking at a small sample out of that data. 
+Even though I only used five rows of data for the sample, the sample was still pretty similar to the full dataset overall. The mean was only a few points different and the sd was close as well. I think this shows that random sampling can still give you a good idea of a larger dataset, even when you're only looking at a small sample out of that data. 
 
 
 When finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.

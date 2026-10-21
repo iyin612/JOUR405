@@ -41,7 +41,7 @@ sleep_stats
 
 **Answer this question:** Based on these numbers alone, what would you tell the health reporter? Why might it be risky to report the average as the definitive answer for all students?
 
-ANSWER HERE
+ANSWER HERE : I'd tell the health reporters that students in this sample are getting the CDC recommended number of hours sleep. It may be risky to report this as the average though because its a small sample size and may not represent the overall population. The sample consists of journalism majors and this data was taken and the beginnin gof the semester where students may have been getting more hours of sleep than normal.
 
 ### Task 3: Calculate the standard error
 
@@ -58,7 +58,7 @@ sleep_stats
 
 **Answer this question:** The standard error is much smaller than the standard deviation. Why? What does each one measure?
 
-ANSWER HERE
+ANSWER HERE: Standard error represents the variation in our sample mean, and the standard deviation just tells us how the set of numbers varies around the mean. The se is smaller because they're measuring two different things even though they're using the same unit. The Sd is based on the sample we have and the se is based on if we take on more samples based on the size.
 
 ### Task 4: Calculate a 95% confidence interval
 
@@ -79,7 +79,7 @@ sleep_stats |>
 
 **Answer this question:** Write one sentence explaining what this confidence interval means in plain English that a reader would understand.
 
-ANSWER HERE
+ANSWER HERE: The confidence interval means that we are 95% confident that the true mean falls between 7.28 and 8.18 hours.
 
 ### Task 5: Visualize the distribution with the confidence interval
 
@@ -112,7 +112,7 @@ ggplot(sleep_data, aes(x = hours)) +
 
 **Answer this question:** Look at the chart. Notice that the confidence interval is much narrower than the spread of individual data points. Why? What's the difference between the variation in individual sleep hours and the uncertainty about the average?
 
-ANSWER HERE
+ANSWER HERE: data points can be spread out in different samples, while the mean stays in the same point, the hours individual people slept doesn't drastically change the mean, which could be why the confidence interval is narrower than the spread of the individual data points. 
 
 ### Task 6: The CDC question — is 7 hours within the interval?
 
@@ -134,7 +134,8 @@ sleep_stats |>
   b) "Students May Not Be Getting Enough Sleep, Survey Suggests"
   c) "Survey: Students Getting Recommended Amount of Sleep"
 
-ANSWER HERE
+
+ANSWER HERE : I think answer A is justified because based on our confidence interval, wer are 95% confident that the average amount of hours of sleep for students falls in between 7.28 and 8.18.
 
 ### Task 7: What about a bigger sample?
 

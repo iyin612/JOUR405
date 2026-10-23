@@ -58,4 +58,4 @@ weekly_wmata |>
 
 **Answer this question:** Describe the trend you see. Is ridership going up, down, or staying flat? What are the big dips, and what might explain them? What would you want to know before writing a story about Metro weekly ridership trends?
 
-ANSWER HERE
+ANSWER HERE: based on the line, it shows that ridership is going up slightly but still pretty steady. It goes from around the 5m weekly riders range to around 5.3 mil (from what I can see in the chart) The big dips in the overall data could be holidays or bad weather. The biggest drop I can see was in 2026-01 so january or feburary of this year, it could have been a natural disaster like a storm or a service disruption so I would confirm the cause of that drop first. Before writing the story i'd also want to confirm whether the big dips in the data are real like actual confirmed dat or if its being caused by a gap in the data or data error like in some previous assignments we've done

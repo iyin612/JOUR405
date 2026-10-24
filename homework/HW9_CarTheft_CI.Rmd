@@ -9,7 +9,7 @@ Your editor wants to know what a "typical" month of car thefts looks like in Pri
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-# LOAD THE TIDYVERSE
+library(tidyverse)
 ```
 
 ### Task 2: Load the Prince George's county crime data
@@ -29,7 +29,7 @@ glimpse(car_thefts)
 
 We'll make a line chart using geom_line() to try and illustrate any trend over time. What's your initial reaction to the change in car thefts? Is there a trend? If your editor asked you "how many car thefts happen in a typical month?", what would you say based on this chart alone?
 
-PUT ANSWERS HERE
+my initial reaction is that I can see a the rates going downward. In July the monthly thefts went as high as 611 in July 2023 and it had went down to 211 by February 2026. Its not a perfectly stable rate, but generally each year is lower than the last. If my editior asked me how many car thefts happen in a typical months, I'd say based on the chart alone about 376 on average but maybe closer to 300
 
 ```{r}
 
@@ -60,9 +60,9 @@ We've got a small number of months, so we need to quantify the uncertainty aroun
 theft_summary <- car_thefts |>
   summarize(
     mean_thefts = mean(total),
-    sd_thefts = sd(REPLACE_ME),
+    sd_thefts = sd(total),
     months = n(),
-    se_thefts = sd_thefts / sqrt(REPLACE_ME),
+    se_thefts = sd_thefts / sqrt(32),
     margin_error = qt(0.975, df = months - 1) * se_thefts
   )
 
@@ -73,7 +73,7 @@ theft_summary
 
 **Answer this question:** Explain in your own words what the margin of error tells us here. If you were writing a story, how would you use this number? For example, how would you complete this sentence: "Prince George's County averages about ___ car thefts per month, plus or minus ___."
 
-PUT ANSWERS HERE
+the margin of error (34) tells us how far off the average, which in this case is 375, might be. If i were writing a story and had to explain it, I'd say "Prince Georges County averages about 376 car thefts per month, plus or minus 34
 
 ### Task 5: Build the confidence interval
 
@@ -83,8 +83,8 @@ Now let's turn the margin of error into a full confidence interval — the range
 
 theft_summary <- theft_summary |>
   mutate(
-    ci_lower = mean_thefts - REPLACE_ME,
-    ci_upper = mean_thefts + REPLACE_ME
+    ci_lower = mean_thefts - margin_error,
+    ci_upper = mean_thefts + margin_error
   )
 
 theft_summary |>
@@ -94,13 +94,13 @@ theft_summary |>
 
 **Answer this question:** If a county official claimed "car thefts are down to about 300 per month," does your confidence interval support that claim? What about a claim of 350 per month? Explain how the confidence interval helps you evaluate each claim.
 
-PUT ANSWERS HERE
+the confidence interval doesn't support it, the confidence interval is from 341 to 410 and 300 falls below that range. The claim of 350 a month fall within the range of our confidence interval, so its more plausible. The confidence interval helps us because it's our way of verifying the information. If the claim falls within the range of our confidence interval, its plausible, if it falls outside of it, that means it goes against our data.
 
 ### Task 6: Visualize the data with the confidence interval
 
 Let's make a chart showing the data with the mean and the 95% confidence interval. Does this change anything about your answer from Task 3?
 
-PUT ANSWERS HERE
+I think it doesn't change anything about my answer, because with this chart the 300 per month claim still isn't supported, and 350 falls within the interval. 
 
 ```{r}
 # Make a chart with the mean and CI
@@ -133,7 +133,7 @@ In class we learned that MoE = 1/√n × 100 as a quick approximation for polls.
 hypothetical_summary <- tibble(
   mean_thefts = theft_summary$mean_thefts,
   sd_thefts = theft_summary$sd_thefts,
-  months = REPLACE_ME,
+  months = 40,
   se_thefts = sd_thefts / sqrt(months),
   margin_error = qt(0.975, df = months - 1) * se_thefts,
   ci_lower = mean_thefts - margin_error,
@@ -155,7 +155,7 @@ comparison
 
 **Answer this question:** How did the margin of error and confidence interval change? What does this tell you about the tradeoff between having more data and being able to make precise claims? If you were covering crime trends, how many months of data would you want before writing a definitive story?
 
-PUT ANSWERS HERE
+the margin of error went down by 4 and our confidence interval changed to 345 to about 406. This tells us that having more data can give us a smaller margin of error and allows us to have more concrete claims, as you add more months the gain does down, because of this I'd say you'd want around 25-36 months before trying to write a definitive story, so you have enough motnhs to confirm real trends/ptterns. 
 
 ### Task 8: Reporting with uncertainty
 
@@ -165,7 +165,11 @@ Based on everything you've calculated, answer the following:
 
 2. Your editor says "Just tell me if car thefts are going up or down." Using only the confidence interval (no significance testing yet), what's the most accurate answer you can give? What would you need to do next to answer that question more definitively?
 
-PUT ANSWERS HERE
+1. For the headline and lede- Car thefts in Prince Georges County have dropped since 2023.
+
+Car thefts in Prince Georges County have fallen over the past two  years, going from 611 in July 2023 to 211 in February 2026. The county also averaged about 376 thefts a month, plus or minus 34. 
+
+2- I'd say the confidence interval by itself couldn't give a concrete answer to that, it only tells us the average over the entire period could be between 341 and 410 thefts a month. I'd say that the data shows a downward pattern, but I can't confirm anything. To be able to actually answer that question, I'd want to actually test if the earlier months were actually higher than the recent months and wasn't just due to potentially seasonal or other issues.
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.

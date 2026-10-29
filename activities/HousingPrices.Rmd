@@ -185,7 +185,7 @@ tibble(
 
 **Answer this question:** The effect size is "medium." In dollar terms, the average increase is about $19,500. But remember that the standard deviation of home prices in this neighborhood was $32,000 *before* the transit line — meaning prices already varied by tens of thousands of dollars from sale to sale. Given that context, does a $19,500 increase seem large or modest? How does the effect size help you think about this differently than just looking at the dollar amount?
 
-19,500 does sound like a lot in dollars but if the home prices in this neighborhood already varied by 32000 from sale to sale then the increase is smaller than the normal variations in this specific case. The effect size being 0.61 shows that the average basically moved a medium amount, its noticeable but not huge.
+19,500 does sound like a lot in dollars but if the home prices in this neighborhood already varied by 32000 from sale to sale then the increase is smaller than the normal variations in this specific case. The effect size being 0.61 shows that the average basically moved a small/medium amount, its noticeable but not huge.
 
 ### Task 7: What's the story? (6 points)
 
